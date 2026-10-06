@@ -1,49 +1,84 @@
 # CloudWeaver
 
-**Multi-agent cloud infrastructure orchestration concept**
+**Multi-agent cloud infrastructure orchestrator exploring cost, security, scaling, and incident-response workflows.**
 
-CloudWeaver is a Python/React project exploring agent-based cloud operations, including cost analysis, security review, scaling decisions, and incident response.
+Python/FastAPI + React project that models specialized agents coordinating cloud operations. Useful as architecture and systems-design evidence for AI Systems / Platform Engineering roles.
 
-> **Important:** Several sections of the original documentation described target architecture, business ROI, performance numbers, and model metrics as if they were measured production results. Those claims have intentionally been removed from the primary project description unless they can be verified from tests or deployment evidence.
+> **Status honesty:** Treat this as an experimental / portfolio architecture project. Distinguish implemented code from design and roadmap. Do not present ROI, latency, or production-scale metrics unless measured and documented in the repo.
 
-## Engineering focus
+## Problem
 
-- Multi-agent orchestration
-- Cloud infrastructure automation
-- Cost and resource analysis
-- Security-oriented infrastructure checks
-- Incident-response workflows
-- Terraform and Kubernetes concepts
-- FastAPI backend
-- React frontend
+Cloud operations (cost control, security posture, scaling, incident response) are split across tools and human runbooks. Teams need structured ways to encode operational judgment into agent workflows that can propose or execute actions with clear boundaries.
 
-## Proposed architecture
+## Solution
 
-The repository documentation describes four specialized agent roles:
+CloudWeaver explores a multi-agent approach:
+
+- Specialized agents own distinct operational concerns
+- A coordinator / orchestration layer routes work
+- Integrations target cloud APIs, IaC concepts, and AI components
+- Frontend surfaces analysis and decisions
+
+The goal is reliable agent-assisted infrastructure automation — not autonomous production control without human oversight.
+
+## Architecture
+
+**Proposed agent roles:**
 
 1. Cost Optimizer
 2. Security Auditor
 3. Auto Scaler
 4. Incident Responder
 
-The architecture also references cloud-provider integrations, an orchestration/coordinator layer, infrastructure-as-code, and ML/AI components.
+```
+User / API
+    │
+Coordinator / Orchestrator
+    │
+┌───┴────┬──────────┬────────────┐
+Cost   Security   Scaler   Incident
+    │
+Cloud APIs · Terraform/K8s concepts · AI components
+```
 
-These should be treated as **repository design/implementation claims**, not proof of autonomous production operation.
+Verify what is implemented vs simulated against the source tree before claiming production behaviour.
 
-## Technology referenced by the repository
+## Features
 
-- Python
-- FastAPI
-- React
-- Terraform
-- Kubernetes
-- Docker
-- Cloud APIs
-- AI/ML components
+- Multi-agent role separation for cloud ops concerns
+- Cost and resource analysis concepts
+- Security-oriented infrastructure checks
+- Scaling and incident-response workflow sketches
+- FastAPI backend + React frontend
+- Terraform / Kubernetes / Docker concepts in design
 
-## Security
+## Tech stack
 
-Cloud credentials and API keys must be supplied through environment variables or a managed secret store.
+| Area | Technology |
+|------|------------|
+| Language | Python |
+| API | FastAPI |
+| Frontend | React |
+| Infra concepts | Terraform, Kubernetes, Docker |
+| Integration | Cloud APIs, AI/ML components |
+
+## Repository structure
+
+Inspect the source tree for the current layout (backend agents/services, frontend, config). Structure may evolve; the README is not a substitute for reading the code.
+
+## Installation
+
+```bash
+git clone https://github.com/lukewealth/CloudWeaver.git
+cd CloudWeaver
+# Follow package/dependency files present in the repo (requirements.txt / pyproject / package.json)
+```
+
+Exact install steps depend on the current dependency manifests — prefer those files over this section if they differ.
+
+## Environment variables
+
+Supply cloud credentials and LLM API keys only via environment variables or a secret manager.
 
 Never commit:
 
@@ -51,25 +86,49 @@ Never commit:
 - LLM API keys
 - database credentials
 - private keys
-- production secrets
 
-## Engineering interview relevance
+## Usage
 
-CloudWeaver demonstrates architectural thinking around the intersection of:
+Run the API and frontend according to the project’s scripts (see package/dependency files and any Makefile). Use the UI or API to exercise agent workflows in a non-production environment.
 
-**AI agents + cloud infrastructure + automation + reliability**
+## Testing
 
-For interviews, be prepared to distinguish:
+Confirm presence of tests in the repository. If limited, treat verification as manual + type/lint level until automated tests are added.
 
-- what is implemented
-- what is simulated
-- what is architectural design
-- what remains roadmap work
+## Deployment
+
+Not claimed as production-deployed. Suitable for local development and portfolio demonstration. Any cloud deployment should use least-privilege credentials and non-production accounts.
+
+## Security
+
+- Secrets only via env / secret store
+- Agents that can touch infrastructure must be permission-scoped
+- Prefer dry-run / proposal modes before destructive actions
+- Review tool allow-lists and audit logging as the surface grows
+
+## Limitations
+
+- Experimental / portfolio scope
+- Not a managed cloud product or certified compliance tool
+- Implementation depth varies by agent — verify before claiming
+- No guaranteed production SLAs or multi-tenant isolation
+
+## Current status
+
+**Experimental / portfolio architecture project.**  
+Strong for demonstrating thinking at the intersection of **AI agents + cloud infrastructure + automation + reliability**. Source code is the authority for what runs today.
+
+## Roadmap
+
+- Clearer separation of implemented vs simulated agents
+- Stronger tests and dry-run safety rails
+- Deeper observability and audit trails
+- Documented evaluation of agent recommendations
 
 ## Keywords
 
-AI Systems Engineer, AI Platform Engineer, Agentic AI, Cloud Automation, Infrastructure Automation, FastAPI, Python, React, Terraform, Kubernetes, Docker, Cloud Infrastructure, AI Agents, DevOps Automation.
+`ai` `artificial-intelligence` `agentic-ai` `ai-agents` `llm` `python` `fastapi` `backend` `api` `automation` `software-architecture` `cloud` `infrastructure` `kubernetes` `terraform` `devops`
 
-## Status
+## License
 
-Experimental / portfolio architecture project. Verify implementation status from the source tree and tests before describing individual components as production-ready.
+See repository license file if present; otherwise all rights reserved by the author.
