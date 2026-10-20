@@ -1,6 +1,55 @@
-config.bat
-node_modules
+# Environment & secrets
+!.env.example
+*.pem
+*.key
+credentials.json
+config.local.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.venv/
+venv/
+env/
+
+# Node / Frontend
+node_modules/
+dist/
+.next/
+.vite/
+*.local
+
+# IDE / OS
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs & temp
+*.log
+logs/
+tmp/
+temp/
+*.tmp
 branch_structure.json
+temp_*.bat
+config.bat
+
+# Docker
+*.pid
 temp_auto_push.bat
 temp_interactive_push.bat
 .gitignore
